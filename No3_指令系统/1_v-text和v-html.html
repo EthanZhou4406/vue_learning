@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第一步：利用cdn方式引入 -->
+    <script src="../vue/vue2.7.10.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 第五步：使用数据 -->
+        <p>{{ msg }}</p>
+        <!-- vue中指令系统都是以v-开头，内容为vue中变量名 -->
+        <!-- v-text和插值语句效果一样，直接将内容放在页面中，不做渲染 -->
+        <p v-text="msg"></p>
+        <!-- v-html会对msg的内容进行渲染 -->
+        <p v-html="msg"></p>
+    </div>
+    
+    <script>
+        // 第二步：创建一个vue实例对象
+        new Vue(
+            {
+                // 第三步：绑定一个页面标签
+                el:"#app",
+                // 第四步：创建数据属性,data也可以是方法，返回值必须是一个对象
+                data:function(){
+                    return {
+                        msg:"<h4>hello</h4>"
+                    }
+                }
+            }
+        );
+    </script>
+</body>
+</html>

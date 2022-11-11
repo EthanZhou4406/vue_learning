@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue/vue2.7.10.js"></script>
+    <style>
+        .show{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-on用于绑定一个事件处理器 -->
+        <button v-on:click="changeStatus">{{ buttonName }}</button>
+        <!-- v-show为false时元素的display属性值为none -->
+        <div class="show" v-show="isShow">
+        </div>
+        <br>
+        <button v-on:click="changeStatus">{{ buttonName }}</button>
+        <!-- v-if为false时元素的标签被移除 -->
+        <div class="show" v-if="isShow">
+        </div>
+    </div>
+    <script>
+        new Vue(
+            {
+                el:"#app",
+                data(){
+                    return {
+                        buttonName:"隐藏",
+                        isShow:true
+                    }
+                },
+                // 定义方法
+                methods:{
+                    changeStatus(){
+                        // this指向vue对象
+                        this.isShow = !this.isShow
+                        if (this.isShow){
+                            this.buttonName = "隐藏"
+                        }else{
+                            this.buttonName = "显示"
+                        }
+                    }
+                }
+            }
+        );
+    </script>
+</body>
+</html>

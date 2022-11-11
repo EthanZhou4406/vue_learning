@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第一步：利用cdn方式引入 -->
+    <script src="../vue/vue2.7.10.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 第五步：使用数据 -->
+        <p>{{ msg }}</p>
+        <!-- {{  }}表示一个插值语法，其中间可以输入任意的js表达式 -->
+        <!-- 一个表达式 -->
+        <p>{{ 1+1 }}</p>
+        <!-- 一个字符串 -->
+        <p>{{ "hewll" }}</p>
+        <!-- 一个对象 -->
+        <p>{{ {"name":"Jack"} }}</p>
+        <!-- 三元运算符 -->
+        <p>{{ 1>2? "真" : "假" }}</p>
+        <!-- 一个对象的属性 -->
+        <p>{{ person.name }}</p>
+        <!-- 一个对象的操作 -->
+        <p>{{ "hello".split("").reverse().join("") }}</p>
+    </div>
+    
+    <script>
+        // 第二步：创建一个vue实例对象
+        new Vue(
+            {
+                // 第三步：绑定一个页面标签
+                el:"#app",
+                // 第四步：创建数据属性
+                data:{
+                    msg:"hello vue",
+                    person:{
+                        name:"tom"
+                    }
+                }
+            }
+        );
+    </script>
+</body>
+</html>

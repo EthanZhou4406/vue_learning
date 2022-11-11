@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue/vue2.7.10.js"></script>
+    <style>
+        .basic{
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-on绑定事件处理函数 -->
+        <!-- <button v-on:click="showMe">点我</button> -->
+        <!-- v-on的简写方法,v-on可以简写 -->
+        <!-- <button @click="showMe">点我</button> -->
+        <!-- v-bind为属性设定值,v-bind可以简写为: -->
+        <!-- <img v-bind:src="imgSrc" :alt="imgAlt"> -->
+        <div @mouseenter="activate" @mouseleave="deactivate" class="basic" :class="{active:isActive}"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return {
+                    isActive:false
+                }
+            },
+            methods:{
+                activate(){
+                    this.isActive = true
+                },
+                deactivate(){
+                    this.isActive = false
+                }
+            }
+        });
+    </script>
+</body>
+</html>

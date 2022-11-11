@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第一步：利用cdn方式引入 -->
+    <script src="../vue/vue2.7.10.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- 遍历一个列表 -->
+            <!-- value表示遍历时的每个对象，index表示索引，key属性用于绑定唯一值，用于数据绑定 -->
+            <li v-for="(value,index) in users" :key="value.id">{{ index }}--{{ value.name }}</li>
+        </ul>
+
+        <!-- 遍历一个对象 -->
+        <!-- value表示对象的值，key表示对象的键 -->
+        <p v-for="(value,key) in person" :key="key">{{ key }} : {{ value }}</p>
+
+    </div>
+    
+    <script>
+        // 第二步：创建一个vue实例对象
+        new Vue(
+            {
+                // 第三步：绑定一个页面标签
+                el:"#app",
+                // 第四步：创建数据属性,data也可以是方法，返回值必须是一个对象
+                data:function(){
+                    return {
+                        users:[
+                            {"id":1,"name":"jack","age":18},
+                            {"id":2,"name":"tom","age":19},
+                            {"id":3,"name":"jerry","age":20}
+                        ],
+                        person:{
+                            "name":"ZhangSan",
+                            "age":29,
+                            "job":"engineer"
+                        }
+                    }
+                }
+            }
+        );
+    </script>
+</body>
+</html>

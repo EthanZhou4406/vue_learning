@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 第一步：利用cdn方式引入 -->
+    <script src="../vue/vue2.7.10.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 第五步：使用数据 -->
+        <p>{{ msg }}</p>
+    </div>
+    
+    <script>
+        // 第二步：创建一个vue实例对象
+        new Vue(
+            {
+                // 第三步：绑定一个页面标签
+                el:"#app",
+                // 第四步：创建数据属性
+                data:{
+                    msg:"hello vue"
+                }
+            }
+        );
+    </script>
+</body>
+</html>

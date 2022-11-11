@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../vue/vue2.7.10.js"></script>
+    <div id="app">
+        <button @click="preImg">上一张</button>
+        <button @click="nextImg">下一张</button>
+        <br>
+        <img :src="imgs[current].src" alt=""/>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    imgs:[
+                        {id:1,src:"../static/photo/1.jpeg"},
+                        {id:2,src:"../static/photo/2.jpeg"},
+                        {id:3,src:"../static/photo/3.jpeg"},
+                        {id:4,src:"../static/photo/4.jpeg"},
+                    ],
+                    current:0
+                }
+            },
+            methods:{
+                preImg(){
+                    this.current--;
+                    if(this.current == -1){
+                        this.current = 3
+                    }
+
+                },
+                nextImg(){
+                    this.current++;
+                    if(this.current == 4){
+                        this.current = 0
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
